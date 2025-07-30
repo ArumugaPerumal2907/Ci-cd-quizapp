@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Dashboard</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <header>
+        <h1>Welcome to Your Dashboard</h1>
+        <nav>
+            <ul>
+                <li><a href="{{ url_for('quiz') }}">Take Quiz</a></li>
+                <li><a href="{{ url_for('upload') }}">Upload Questions</a></li>
+                <li><a href="{{ url_for('results') }}">View Results</a></li>
+                <li><a href="{{ url_for('logout') }}">Logout</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <h2>Your Recent Activity</h2>
+        <p>Here you can find your recent quiz attempts and scores.</p>
+        <!-- Additional dashboard content can be added here -->
+    </main>
+    <footer>
+        <p>&copy; 2025 Mentorbabaa Quiz App</p>
+    </footer>
+</body>
+</html>

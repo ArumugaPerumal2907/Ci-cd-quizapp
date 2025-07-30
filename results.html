@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quiz Results</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>Quiz Results</h1>
+        <table>
+            <thead>
+                <tr>
+                    <th>Question</th>
+                    <th>Your Answer</th>
+                    <th>Correct Answer</th>
+                    <th>Result</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for result in results %}
+                <tr>
+                    <td>{{ result.question }}</td>
+                    <td>{{ result.selected_ans }}</td>
+                    <td>{{ result.correct_ans }}</td>
+                    <td {% if result.is_correct %}class="correct"{% else %}class="incorrect"{% endif %}>
+                        {% if result.is_correct %}Correct{% else %}Incorrect{% endif %}
+                    </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+        <a href="{{ url_for('quiz') }}" class="btn">Take Quiz Again</a>
+        <a href="{{ url_for('logout') }}" class="btn">Logout</a>
+    </div>
+</body>
+</html>
